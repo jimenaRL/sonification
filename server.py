@@ -2,7 +2,6 @@ import os, sys
 import types
 import numpy as np
 
-
 from OSC import OSCServer, OSCMessage, getUrlStr
 
 def handle_timeout(self):
@@ -31,10 +30,10 @@ PORT = 9001
 server = OSCServer((HOST,PORT))
 server.timeout = 0
 run = True
-# print "Running | ip addresse : %s | port : %s" % (HOST,PORT)
+print "Running | ip addresse : %s | port : %s" % (HOST,PORT)
 
-print ("\n"*100)
-print ("gender data sonification "*997)
+# print ("\n"*100)
+# print ("gender data sonification "*997)
 
 # add handle_timeout method to the server
 server.handle_timeout = types.MethodType(handle_timeout, server)

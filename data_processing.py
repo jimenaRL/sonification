@@ -2,8 +2,6 @@ import os, glob, csv
 import numpy as np
 import pandas as pd
 
-ww_path = '/Users/JRLetelier/perso/sonification'
-
 def export_ML4(path,rows=[]):
 
     # load data
@@ -86,9 +84,14 @@ if __name__=='__main__':
         'entrepreneurship'    : ['Indicator','Country','Value','Time','Sex'],
         }
 
+    data_path = 'path/to/sonification/data/oced'
+
+    if not os.path.exists(data_path):
+        raise ValueError("Please provide set a valid path for the data to treat !!! ")
+
     for kind,rows in kinds.iteritems():
         print "\n\n**** %s *****\n\n" % kind
-        path_list = glob.glob(os.path.join(ww_path,'data','oced',"%s/*.csv"%kind))
+        path_list = glob.glob(os.path.join(data_path,"%s/*.csv"%kind))
         for path in path_list:
             print "\n\t %s " % path
             export_ML4(path,rows)
