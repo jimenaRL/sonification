@@ -10,7 +10,9 @@ Piece created for the opening of Woman of Mathematics exhibition at the Max Plan
 
 ##  Music & Programming
 
-**Alice Guerlot-Kourouklis** & **Jimena Royo-Letelier**
+**[Alice Guerlot-Kourouklis](www.algk.fr)**
+
+**Jimena Royo-Letelier**
 
 ## Configuration and dependencies
 
