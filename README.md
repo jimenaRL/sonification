@@ -22,7 +22,6 @@ $ pip install pytest==2.9.2
 
 ## Data source
 
-http://www.oecd.org/gender/data/
-
+[OECD gender data](http://www.oecd.org/gender/data/)
 
 ![Sequence Schema](image.png)
