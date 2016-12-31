@@ -2,8 +2,6 @@ import os, sys
 import types
 import numpy as np
 
-from espaces import EspaceClient
-espace_client = EspaceClient()
 
 from OSC import OSCServer, OSCMessage, getUrlStr
 

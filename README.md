@@ -14,11 +14,11 @@ Piece created for the opening of Woman of Mathematics exhibition at the Max Plan
 
 ## Configuration and dependencies
 
-Install python packages:
+Install pyosc python package
 
-$ pip install google-api-python-client==1.5.5
-$ pip install pytest==2.9.2
-
+$ git clone https://github.com/ptone/pyosc.git
+$ cd pyosc
+$ sudo ./setup.py install
 
 ## Data source
 
