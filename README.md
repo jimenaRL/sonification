@@ -33,5 +33,3 @@ Music & Programming
 
 [OECD gender data](http://www.oecd.org/gender/data/)
 
-## Ressources
-
