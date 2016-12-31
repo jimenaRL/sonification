@@ -8,28 +8,31 @@ Scripts for gender data sonification project.
 
 *Piece created for the opening of Woman of Mathematics exhibition at the Max Planck Institute for Mathematics in Bonn. November 10th, 2016.*
 
-##  Music & Programming
+Music & Programming
     
 **[Alice Guerlot-Kourouklis](www.algk.fr)**
 
 **Jimena Royo-Letelier**
 
+
+[video](https://vimeo.com/194002936)
+
+![Sequence Schema](image.png)
+
+
 ## Configuration and dependencies
 
-Install pyosc python package
+1) Install pyosc python package
 
 $ git clone https://github.com/ptone/pyosc.git
-
 $ cd pyosc
-
 $ sudo ./setup.py install
 
+2) Set valid data_path 'path/to/sonification/data/oced' in data_processing.py file.
+ 
 ## Data source
 
 [OECD gender data](http://www.oecd.org/gender/data/)
 
 ## Ressources
 
-[video](https://vimeo.com/194002936)
-
-![Sequence Schema](image.png)
