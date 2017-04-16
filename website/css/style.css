@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  background: #000;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 90%;
+    min-height: 90%;
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('generique.jpg') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+}
+.stopfade {
+   opacity: .5;
+}
+
+.notes {
+  font-family: Menlo Regular, Arial Narrow;
+  background: rgba(0,0,0,0.3);
+  color: #002699;
+  width: 15%;
+  margin:2rem;
+  float: right;
+  font-size: 1rem;
+}
+
+
+.notes button {
+  display: block;
+  width: 20%;
+  padding: .4rem;
+  border: none;
+  margin: 1rem auto;
+  font-size: 1.3rem;
+  background: rgba(0, 0, 0, 0.23);
+  color: #002699;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .3s background;
+}
+
+.notes button:hover {
+  background: rgba(0,0,0,0.5);
+}
+
+.fa-volume-off {
+  width: 20px;
+}
+
+ .fa-volume-off,
+ .fa-volume-up:hover {
+   cursor: pointer
+ }
+
+
+a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background; 
+}
+a:hover{
+  background:rgba(0,0,0,0.9);
+}
+@media screen and (max-width: 500px) { 
+  div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(generique.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
