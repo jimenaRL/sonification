@@ -19,6 +19,7 @@ video {
     background-size: cover;
     transition: 1s opacity;
 }
+
 .stopfade {
    opacity: .5;
 }
@@ -34,16 +35,16 @@ video {
 }
 
 
-.notes button {
-  display: block;
+.notes button{
+  display: inline-block;
   width: 20%;
-  padding: .4rem;
   border: none;
   margin: 1rem auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   font-size: 1.3rem;
   background: rgba(0, 0, 0, 0.23);
   color: #002699;
-  border-radius: 3px;
   cursor: pointer;
   transition: .3s background;
 }
@@ -52,14 +53,10 @@ video {
   background: rgba(0,0,0,0.5);
 }
 
-.fa-volume-off {
-  width: 20px;
-}
 
- .fa-volume-off,
- .fa-volume-up:hover {
-   cursor: pointer
- }
+.fa-volume-off, .fa-volume-up{
+  font-size: 1.3rem;
+}
 
 
 a {
@@ -68,15 +65,17 @@ a {
   text-decoration: none;
   background:rgba(0,0,0,0.5);
   padding: .5rem;
-  transition: .6s background; 
+  transition: .6s background;
 }
+
 a:hover{
   background:rgba(0,0,0,0.9);
 }
-@media screen and (max-width: 500px) { 
-  div{width:70%;} 
+
+@media screen and (max-width: 500px) {
+  div{width:70%;}
 }
 @media screen and (max-device-width: 800px) {
   html { background: url(generique.jpg) #000 no-repeat center center fixed; }
-  #bgvid { display: none; }
+  .bgvid { display: none; }
 }

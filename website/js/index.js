@@ -1,10 +1,13 @@
 var vid = document.getElementById("bgvid");
-var pauseButton = document.querySelector(".notes button");
+// var pauseButton = document.querySelector(".notes button");
+var transportButton = document.getElementById("transport");
+var volumeButton = document.getElementById("volume");
+
 
 if (window.matchMedia('(prefers-reduced-motion)').matches) {
     vid.removeAttribute("autoplay");
     vid.pause();
-    pauseButton.innerHTML = "▶";
+    transportButton.innerHTML = "▶";
 }
 
 function vidFade() {
@@ -20,14 +23,24 @@ vidFade();
 });
 
 
-pauseButton.addEventListener("click", function() {
-  vid.classList.toggle("stopfade");
+transportButton.addEventListener("click", function() {
+  vid.classList.toggle("stopvolume");
   if (vid.paused) {
     vid.play();
-    pauseButton.innerHTML = "❚❚";
+    transportButton.innerHTML = "❚❚";
   } else {
     vid.pause();
-    pauseButton.innerHTML = "▶";
+    transportButton.innerHTML = "▶";
   }
 });
 
+
+volumeButton.addEventListener("click", function() {
+  if (vid.muted) {
+    vid.muted = false;
+    volumeButton.innerHTML = '<i class="fa fa-volume-up audio-control"></i>';
+  } else {
+    vid.muted = true;
+    volumeButton.innerHTML = '<i class="fa fa-volume-off audio-control"></i>';
+  }
+});
