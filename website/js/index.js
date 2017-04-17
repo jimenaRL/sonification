@@ -46,8 +46,6 @@ volumeButton.addEventListener("click", function() {
 
 
 
-var theToggle = document.getElementById('toggle');
-
 // based on Todd Motto functions
 // http://toddmotto.com/labs/reusable-js/
 
@@ -84,7 +82,17 @@ function toggleClass(elem, className) {
     }
 }
 
+var theToggle = document.getElementById('toggle');
+
 theToggle.onclick = function() {
    toggleClass(this, 'on');
    return false;
+};
+
+var onload_toggleClass = function(){
+    toggleClass(theToggle, 'on');
+};
+
+window.onload = function() {
+  setTimeout(onload_toggleClass, 20000);
 };
