@@ -15,7 +15,7 @@ def woman_callback(path, tags, args, source):
 
     indent = np.random.randint(0, 10)
     out = "\t" * indent
-    out += " ".join([str(arg) for arg in args])
+    out += " ".join([str(arg).replace('__', ' ').replace('_', ' ') for arg in args])
     out += "\n"
     print out
     return
