@@ -1,0 +1,50 @@
+DATA SOURCES
+
+    OECD data & indicators
+
+        OECD Family Database
+        http://www.oecd.org/social/database.htm
+
+        OECD Education at a Glance
+        http://www.oecd.org/education/education-at-a-glance-19991487.htm
+
+        OECD Entrepreneurship at a Glance
+        http://www.oecd.org/industry/entrepreneurship-at-a-glance-22266941.htm
+
+        Social Institutions and Gender Index&nbsp;(SIGI)
+        http://www.oecd.org/development/launchofthesocialinstitutionsandgenderindex.htm
+
+        OECD/DAC: Aid activities targeting gender equality and women&rsquo;s empowerment (CRS)
+        http://stats.oecd.org/Index.aspx?DataSetCode=GENDER
+
+        OECD Health Statistics
+        http://www.oecd.org/health/health-data.htm
+
+        Education GPS
+        http://gpseducation.oecd.org
+
+    Other institutions
+
+        Global Gender Statistics Programme
+        http://unstats.un.org/unsd/gender/default.html
+
+        EU Database on gender balance in decision-making positions
+        http://ec.europa.eu/justice/gender-equality/gender-decision-making/index_en.htm
+
+        The World Bank: Gender Statistics
+        http://data.worldbank.org/topic/gender
+
+        UNESCO Institute for Statistics
+        http://www.uis.unesco.org/Education/Pages/default.aspx
+
+        UNECE Gender Statistics Database
+        http://www.unece.org/statistics/areas-of-work/statssoc/gender-statistics.html
+
+        GEM: Global Entrepreneurship Monitor
+        http://www.gemconsortium.org/
+
+        UNDP: Gender Inequality Index
+        http://hdr.undp.org/en/content/gender-inequality-index-gii
+
+        Women in national parliaments
+        http://www.ipu.org/wmn-e/classif.html
