@@ -13,8 +13,10 @@ Music & Programming
 * **[Alice Guerlot-Kourouklis](www.algk.fr)**
 * **Jimena Royo-Letelier**
 
+[website](http://www.algk.ovh/sonification/genderdata.html)
 
 [video](https://vimeo.com/194002936)
+
 
 ![Sequence Schema](image.png)
 
