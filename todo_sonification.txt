@@ -1,4 +1,8 @@
-TO DO
+TO DO CREATION
+
+    define neutral state for each parameter on wich we act
+
+TO DO DEV
 
 - data
 
@@ -7,8 +11,6 @@ TO DO
 
 
 - max
-
-    define neutral state for each parameter on wich we act
 
     device modification
         remove autopattr
