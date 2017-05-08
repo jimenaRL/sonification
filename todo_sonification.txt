@@ -1,0 +1,34 @@
+TO DO
+
+- data
+
+    define accepted input format
+    normalisation in python
+
+
+- max
+
+    define neutral state for each parameter on wich we act
+
+    device modification
+        remove autopattr
+        remove random jitter / minmax / invert
+
+- interaction
+
+    prepare korg volca sample synthesizer
+    prepare controller
+
+
+IN PROGRESS
+
+
+DONE
+
+- viz
+
+    split screen terminal
+
+- max
+
+    fully iunderstanding mapping device
