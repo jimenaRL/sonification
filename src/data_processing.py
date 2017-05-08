@@ -1,8 +1,10 @@
-import os, glob, csv
+import os
+import glob
 import numpy as np
 import pandas as pd
 
-def export_ML4(path,rows=[]):
+
+def export_ML4(path, rows=[]):
 
     # load data
     df = pd.read_csv(path, delimiter=',')
@@ -12,32 +14,31 @@ def export_ML4(path,rows=[]):
     df = df[rows_]
 
     # clean data
-    df.dropna(axis='index',inplace=True,how='any')
+    df.dropna(axis='index', inplace=True, how='any')
 
     # data traitement
     tt = 'Sex'
     if tt in rows_:
         try:
-            if (len(set(df[tt].tolist()))>1):
+            if (len(set(df[tt].tolist())) > 1):
                 to_treats = list(set(df[tt].tolist()))
                 print to_treats
                 if 'All' in to_treats:
                     to_treats.remove('All')
                 tt0 = to_treats[0]
                 tt1 = to_treats[1]
-                new_df = df[df[tt]==tt0].copy()
+                new_df = df[df[tt] == tt0].copy()
                 del new_df[tt]
-                to_replace_df = pd.DataFrame(np.abs(df[df[tt]==tt0]['Value'].as_matrix()  - df[df[tt]==tt1]['Value'].as_matrix()))
+                to_replace_df = pd.DataFrame(np.abs(df[df[tt] == tt0]['Value'].as_matrix() - df[df[tt] == tt1]['Value'].as_matrix()))
                 new_df['Value'] = to_replace_df.values
                 df = new_df
         except:
-            return 
+            return
 
     # normalise
     # cols_to_norm = ['Value']
     # df[cols_to_norm] = df[cols_to_norm].apply(lambda x: (x + x.min()))
     # df[cols_to_norm] = df[cols_to_norm].apply(lambda x: (100*(x/x.max())))
-
 
     # monitoring data
     # for i,column in enumerate(df.columns.tolist()):
@@ -50,9 +51,6 @@ def export_ML4(path,rows=[]):
     #         print "%s" % ' | '.join([str(s) for s in set_])
     #     print ""
 
-
-
-
     # export data to ML4
     rows_out = []
     for row in df.iterrows():
@@ -60,7 +58,7 @@ def export_ML4(path,rows=[]):
         tup = row[1]
         tup[1] = '_'.join(tup[1].split(' '))
         for i in range(len(tup)):
-            if isinstance(tup[i],str):
+            if isinstance(tup[i], str):
                 tup[i] = '_'.join(tup[i].split(' '))
                 tup[i] = '_'.join(tup[i].split(','))
         str_ = ' '.join([str(t) for t in tup])+";\n"
@@ -69,29 +67,29 @@ def export_ML4(path,rows=[]):
     # name = path.split('.')[0].split('/')[-1]
     # path_out = os.path.join(ww_path,'data','oced',name+'.txt')
     path_out = path.split('.')[0]+'.txt'
-    with open(path_out,'w') as f_out:
+    with open(path_out, 'w') as f_out:
         f_out.writelines([r for r in rows_out])
 
     print 'data saved at \n\t %s' % path_out
 
-if __name__=='__main__':
+if __name__ == '__main__':
 
     kinds = {
-        'education'           : ['Indicator','Country','Value','Time','Sex'],
-        'development'         : ['Variables','Country','Value','Time','Sex'],
-        'employment'          : ['Indicator','Country','Value','Time','Sex'],
-        'health'              : [],
-        'entrepreneurship'    : ['Indicator','Country','Value','Time','Sex'],
-        }
+        'education': ['Indicator', 'Country', 'Value', 'Time', 'Sex'],
+        'development': ['Variables', 'Country', 'Value', 'Time', 'Sex'],
+        'employment': ['Indicator', 'Country', 'Value', 'Time', 'Sex'],
+        'health': [],
+        'entrepreneurship': ['Indicator', 'Country', 'Value', 'Time', 'Sex'],
+    }
 
     data_path = 'path/to/sonification/data/oced'
 
     if not os.path.exists(data_path):
         raise ValueError("Please provide set a valid path for the data to treat !!! ")
 
-    for kind,rows in kinds.iteritems():
+    for kind, rows in kinds.iteritems():
         print "\n\n**** %s *****\n\n" % kind
-        path_list = glob.glob(os.path.join(data_path,"%s/*.csv"%kind))
+        path_list = glob.glob(os.path.join(data_path, "%s/*.csv" % kind))
         for path in path_list:
             print "\n\t %s " % path
-            export_ML4(path,rows)
+            export_ML4(path, rows)
