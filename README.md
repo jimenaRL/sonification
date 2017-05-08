@@ -1,6 +1,6 @@
 # Gender data sonification
 
-Scripts for gender data sonification project.
+Gender data sonification project.
 
 *An insight into gender inequalities through data sonification*
 
