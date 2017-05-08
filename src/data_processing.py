@@ -1,88 +1,94 @@
 import os
+import copy
 import glob
-import numpy as np
 import pandas as pd
 
 
-def export_ML4(path, rows=[]):
+def export_ML4(df, path):
+    """ Export data to ML4 table format. """
+
+    re_order_columns = [df.columns[1], df.columns[0]] + df.columns[2:].tolist()
+    df = df[re_order_columns]
+
+    for column in df.columns:
+        df[column] = df[column].apply(lambda x: str(x).replace(' ', '_'))
+
+    pre_path, name = os.path.split(path.split('.')[0])
+    path_out = os.path.join(pre_path, name+'_m4l.txt')
+
+    # df.to_csv(path_out, sep='\t', header=False, index=False, encoding='ascii',
+    #           decimal=',')
+
+    print df.head(5)
+    print 'data saved at \n\t %s' % path_out
+
+
+def sex(df):
+    """ Sex difference data traitement. """
+
+    sex = 'Sex'
+    if not sex in df.columns:
+        return
+    sort_criteria = copy.deepcopy(rows)
+    sort_criteria.remove(sex)
+    sort_criteria.remove('Value')
+    avalaible_sexs = list(set(df[sex].tolist()))
+    if not len(avalaible_sexs) > 1:
+        return
+    df = df[df[sex] != 'All']
+    if 'All' in avalaible_sexs:
+        avalaible_sexs.remove('All')
+    sex0, sex1 = avalaible_sexs
+    sex0_df = df[df[sex] == sex0].sort_values(sort_criteria)
+    sex1_df = df[df[sex] == sex1].sort_values(sort_criteria)
+    assert sex0_df.shape == sex1_df.shape
+    sex0_df = sex0_df.reset_index().drop('index', axis=1)
+    sex1_df = sex1_df.reset_index().drop('index', axis=1)
+    for sc in sort_criteria:
+        assert sex0_df[sc].tolist() == sex1_df[sc].tolist()
+
+    # compute difference
+    diff = (sex0_df['Value'] - sex1_df['Value']).abs()
+
+    # scale difference to [0, 1] range
+    diff = (diff - diff.min()) / (diff.max() - diff.min())
+
+    # store in new dataframe
+    sex_diff_df = sex0_df[sort_criteria].copy(deep=True)
+    sex_diff_df['Value'] = diff
+
+    return sex_diff_df
+
+
+def data_traitement(path, rows=[]):
 
     # load data
-    df = pd.read_csv(path, delimiter=',')
+    df = pd.read_csv(path, delimiter=',', engine='python')
 
     # select rows
-    rows_ = list(set(rows) & set(df.columns.tolist()))
-    df = df[rows_]
+    avalaible_rows = list(set(rows) & set(df.columns.tolist()))
+    df = df[avalaible_rows].copy(deep=True)
 
     # clean data
     df.dropna(axis='index', inplace=True, how='any')
 
-    # data traitement
-    tt = 'Sex'
-    if tt in rows_:
-        try:
-            if (len(set(df[tt].tolist())) > 1):
-                to_treats = list(set(df[tt].tolist()))
-                print to_treats
-                if 'All' in to_treats:
-                    to_treats.remove('All')
-                tt0 = to_treats[0]
-                tt1 = to_treats[1]
-                new_df = df[df[tt] == tt0].copy()
-                del new_df[tt]
-                to_replace_df = pd.DataFrame(np.abs(df[df[tt] == tt0]['Value'].as_matrix() - df[df[tt] == tt1]['Value'].as_matrix()))
-                new_df['Value'] = to_replace_df.values
-                df = new_df
-        except:
-            return
+    # specific data traitement
+    sex_diff_df = sex(df)
+    export_ML4(sex_diff_df, path)
 
-    # normalise
-    # cols_to_norm = ['Value']
-    # df[cols_to_norm] = df[cols_to_norm].apply(lambda x: (x + x.min()))
-    # df[cols_to_norm] = df[cols_to_norm].apply(lambda x: (100*(x/x.max())))
-
-    # monitoring data
-    # for i,column in enumerate(df.columns.tolist()):
-    #     print column
-    #     if column=='Value':
-    #         values = np.array([row[1].tolist()[i] for row in df.iterrows()])
-    #         print  "min %s | max %s  | mean %s "%  (values.min(),values.max(),values.mean())
-    #     else:
-    #         set_ = set([ row[1].tolist()[i] for row in df.iterrows()])
-    #         print "%s" % ' | '.join([str(s) for s in set_])
-    #     print ""
-
-    # export data to ML4
-    rows_out = []
-    for row in df.iterrows():
-        idx = row[0]
-        tup = row[1]
-        tup[1] = '_'.join(tup[1].split(' '))
-        for i in range(len(tup)):
-            if isinstance(tup[i], str):
-                tup[i] = '_'.join(tup[i].split(' '))
-                tup[i] = '_'.join(tup[i].split(','))
-        str_ = ' '.join([str(t) for t in tup])+";\n"
-        rows_out.extend([str_])
-
-    # name = path.split('.')[0].split('/')[-1]
-    # path_out = os.path.join(ww_path,'data','oced',name+'.txt')
-    path_out = path.split('.')[0]+'.txt'
-    with open(path_out, 'w') as f_out:
-        f_out.writelines([r for r in rows_out])
-
-    print 'data saved at \n\t %s' % path_out
 
 if __name__ == '__main__':
 
     kinds = {
-        'education': ['Indicator', 'Country', 'Value', 'Time', 'Sex'],
-        'development': ['Variables', 'Country', 'Value', 'Time', 'Sex'],
-        'employment': ['Indicator', 'Country', 'Value', 'Time', 'Sex'],
-        'health': [],
+        # 'education': ['Indicator', 'Country', 'Value', 'Time', 'Sex'],
+        # 'development': ['Variables', 'Country', 'Value', 'Time', 'Sex'],
+        # 'employment': ['Indicator', 'Country', 'Value', 'Time', 'Sex'],
+        # 'health': [],
         'entrepreneurship': ['Indicator', 'Country', 'Value', 'Time', 'Sex'],
     }
 
-    data_path = 'path/to/sonification/data/oced'
+    # data_path = 'path/to/sonification/data/oced'
+    data_path = '/Users/JRLetelier/perso/sonification/data/oced'
 
     if not os.path.exists(data_path):
         raise ValueError("Please provide set a valid path for the data to treat !!! ")
@@ -92,4 +98,4 @@ if __name__ == '__main__':
         path_list = glob.glob(os.path.join(data_path, "%s/*.csv" % kind))
         for path in path_list:
             print "\n\t %s " % path
-            export_ML4(path, rows)
+            data_traitement(path, rows)
