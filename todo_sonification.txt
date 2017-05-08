@@ -4,13 +4,9 @@ TO DO CREATION
 
 TO DO DEV
 
-- data
-
-    define accepted input format
-    normalisation in python
-
-
 - max
+
+    made data reading bpatch
 
     device modification
         remove autopattr
@@ -24,13 +20,27 @@ TO DO DEV
 
 IN PROGRESS
 
+- data
+
+    process all data
+    verif correct values
 
 DONE
+
+- data
+
+    define accepted input format
+    normalisation in python
 
 - viz
 
     split screen terminal
+    fix string parsing
 
 - max
 
     fully iunderstanding mapping device
+
+
+
+
