@@ -1,4 +1,5 @@
 import types
+import sys
 import numpy as np
 from OSC import OSCServer
 
@@ -26,8 +27,8 @@ def quit_callback(path, tags, args, source):
     run = False
 
 # create server
-HOST = "localhost"
-PORT = 9001
+HOST = sys.argv[1]  # "localhost"
+PORT = int(sys.argv[2])  # 9001
 server = OSCServer((HOST, PORT))
 server.timeout = 0
 run = True
