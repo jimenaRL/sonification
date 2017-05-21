@@ -39,7 +39,9 @@ DONE
 
 - max
 
-    fully iunderstanding mapping device
+    full understanding of mapping device behaviour
+    on note off back to neutral state of parameter
+
 
 
 
