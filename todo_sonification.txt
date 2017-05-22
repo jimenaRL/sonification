@@ -6,11 +6,12 @@ TO DO DEV
 
 - max
 
-    made data reading bpatch
-
     device modification
         remove autopattr
         remove random jitter / minmax / invert
+
+    ++
+        create programtically send value
 
 - interaction
 
@@ -41,7 +42,8 @@ DONE
 
     full understanding of mapping device behaviour
     on note off back to neutral state of parameter
-
+    fixed same value receive/send bug
+    fixed port send data bug
 
 
 
