@@ -1,34 +1,32 @@
 code;treatment;name;new_indicator_name;url
 GIDDB2014_27052017153629784;no_treat;Female genital mutilation;Female genital mutilation;http://stats.oecd.org/index.aspx?queryid=71074
 GIDDB2014_30102016195035101;share;Political representation;Women in national parliaments;http://stats.oecd.org/index.aspx?queryid=71092
-GENDER_EDU_06112016140116188;sex;Differences in earnings between female and male workers, All levels of education;Differences in earnings between female and male workers, All levels of education;unknown
+GENDER_EDU_06112016140116188;percentage;Differences in earnings between female and male workers, All levels of education;Differences in earnings between female and male workers, All levels of education;unknown
 GENDER_EDU_06112016140132095;sex;Participation in formal and/or non-formal education, Formal education, standard error;Participation in formal and/or non-formal education, Formal education, standard error;unknown
 GENDER_EDU_06112016140146001;sex;Low-achieving students, Reading;Low-achieving students, Reading;unknown
 GENDER_EDU_06112016140152907;sex;Top performers, Reading;Top performers, Reading;unknown
 GENDER_EDU_06112016140202548;sex;PISA scores, Reading;PISA scores, Reading;unknown
 GENDER_EDU_06112016140244017;sex;Successful completion of upper secondary programmes;Successful completion of upper secondary programmes;unknown
 GENDER_EDU_30102016192346898;sex;Top performers, Reading;Top performers, Reading;unknown
-GENDER_EMP_05112016212143869;unknown;Gender wage gap;Gender wage gap;unknown
-GENDER_EMP_05112016212158572;unknown;Labour force participation rate, by sex and age group ;Labour force participation rate, by sex and age group ;unknown
-GENDER_EMP_05112016212211025;unknown;Employment/population ratio, by sex and age group;Employment/population ratio, by sex and age group;unknown
-GENDER_EMP_05112016212228400;unknown;Youth unemployment rate, by sex, 15-24 years old;Youth unemployment rate, by sex, 15-24 years old;unknown
-GENDER_EMP_05112016212254009;unknown;Unemployment rate, by sex and age group, quarterly data;Unemployment rate, by sex and age group, quarterly data;unknown
-GENDER_EMP_05112016212310103;unknown;Share of employed in part-time employment, by sex;Share of employed in part-time employment, by sex;unknown
-GENDER_EMP_05112016212325259;unknown;Share of employed in involuntary part-time employment, by sex and age group;Share of employed in involuntary part-time employment, by sex and age group;unknown
-GENDER_EMP_05112016212337869;unknown;Full-time equivalent employment rate, by sex;Full-time equivalent employment rate, by sex;unknown
-GENDER_EMP_05112016212350431;unknown;Share of employed in temporary employment, by sex and age group;Share of employed in temporary employment, by sex and age group;unknown
-GENDER_EMP_05112016212404525;unknown;Share of employed who are managers, by sex;Share of employed who are managers, by sex;unknown
-GENDER_EMP_05112016212415384;unknown;Female share of seats on boards of the largest publicly listed companies;Female share of seats on boards of the largest publicly listed companies;unknown
-GENDER_EMP_05112016212426806;unknown;Female share of public employment;Female share of public employment;unknown
-GENDER_EMP_05112016212440150;unknown;Female share of seats in national parliaments;Female share of seats in national parliaments;unknown
-GENDER_EMP_05112016212451666;unknown;Share of employed working in agriculture, by sex;Share of employed working in agriculture, by sex;unknown
-GENDER_EMP_05112016212502947;unknown;Time spent in unpaid work, by sex;Time spent in unpaid work, by sex;unknown
-GENDER_EMP_05112016212515150;unknown;Expected number of years in retirement, by sex;Expected number of years in retirement, by sex;unknown
-GENDER_EMP_05112016212525588;unknown;Length of maternity leave;Length of maternity leave;unknown
-GENDER_EMP_05112016212536603;unknown;Enrolment rates in pre-primary education or primary school, children aged 3 to 5 year old;Enrolment rates in pre-primary education or primary school, children aged 3 to 5 year old;unknown
-GENDER_EMP_30102016184517210;unknown;Gender wage gap;Gender wage gap;unknown
-GENDER_EMP_30102016191212039;unknown;Female share of seats in national parliaments;Female share of seats in national parliaments;unknown
-GENDER_EMP_30102016191904835;unknown;Time spent in unpaid work, by sex;Time spent in unpaid work, by sex;unknown
+GENDER_EMP_05112016212143869;percentage;Gender wage gap;Gender wage gap;unknown
+GENDER_EMP_05112016212158572;sex;Labour force participation rate, by sex and age group ;Labour force participation rate, by sex and age group ;unknown
+GENDER_EMP_05112016212211025;sex;Employment/population ratio, by sex and age group;Employment/population ratio, by sex and age group;unknown
+GENDER_EMP_05112016212228400;sex;Youth unemployment rate, by sex, 15-24 years old;Youth unemployment rate, by sex, 15-24 years old;unknown
+GENDER_EMP_05112016212254009;sex;Unemployment rate, by sex and age group, quarterly data;Unemployment rate, by sex and age group, quarterly data;unknown
+GENDER_EMP_05112016212310103;sex;Share of employed in part-time employment, by sex;Share of employed in part-time employment, by sex;unknown
+GENDER_EMP_05112016212325259;sex;Share of employed in involuntary part-time employment, by sex and age group;Share of employed in involuntary part-time employment, by sex and age group;unknown
+GENDER_EMP_05112016212337869;sex;Full-time equivalent employment rate, by sex;Full-time equivalent employment rate, by sex;unknown
+GENDER_EMP_05112016212350431;sex;Share of employed in temporary employment, by sex and age group;Share of employed in temporary employment, by sex and age group;unknown
+GENDER_EMP_05112016212404525;sex;Share of employed who are managers, by sex;Share of employed who are managers, by sex;unknown
+GENDER_EMP_05112016212415384;share;Female share of seats on boards of the largest publicly listed companies;Female share of seats on boards of the largest publicly listed companies;unknown
+GENDER_EMP_05112016212426806;share;Female share of public employment;Female share of public employment;unknown
+GENDER_EMP_05112016212440150;share;Female share of seats in national parliaments;Female share of seats in national parliaments;unknown
+GENDER_EMP_05112016212451666;sex;Share of employed working in agriculture, by sex;Share of employed working in agriculture, by sex;unknown
+GENDER_EMP_05112016212502947;sex;Time spent in unpaid work, by sex;Time spent in unpaid work, by sex;unknown
+GENDER_EMP_05112016212515150;sex;Expected number of years in retirement, by sex;Expected number of years in retirement, by sex;unknown
+GENDER_EMP_30102016184517210;percentage;Gender wage gap;Gender wage gap;unknown
+GENDER_EMP_30102016191212039;share;Female share of seats in national parliaments;Female share of seats in national parliaments;unknown
+GENDER_EMP_30102016191904835;sex;Time spent in unpaid work, by sex;Time spent in unpaid work, by sex;unknown
 GENDER_ENT1_03112016203738090;sex;Share of the population who report borrowing money to start a business;Share of the population who report borrowing money to start a business;unknown
 GENDER_ENT1_06112016140607392;sex;Attitude towards entrepreneurial risk;Attitude towards entrepreneurial risk;unknown
 GENDER_ENT1_06112016140637563;sex;Access to training on how to start a business;Access to training on how to start a business;unknown
@@ -42,8 +40,8 @@ GENDER_ENT1_06112016140801657;sex;Share of the population who report borrowing m
 GENDER_ENT1_06112016140831938;sex;Share of the population with account in a financial institution;Share of the population with account in a financial institution;unknown
 GENDER_ENT1_06112016140840001;sex;Feasibility of self-employment;Feasibility of self-employment;unknown
 GENDER_ENT1_06112016140847329;sex;Feasibility of self-employment;Feasibility of self-employment;unknown
-GENDER_ENT1_06112016140855392;sex;Share of women inventors;Share of women inventors;unknown
+GENDER_ENT1_06112016140855392;share;Share of women inventors;Share of women inventors;unknown
 GENDER_ENT1_06112016140901626;sex;Share of employed who are own-account workers;Share of employed who are own-account workers;unknown
 GENDER_ENT1_06112016140908313;sex;Share of employed who are employers;Share of employed who are employers;unknown
-GENDER_ENT1_06112016140916235;sex;Earning gap in self-employment;Earning gap in self-employment;unknown
-GENDER_ENT1_06112016140923454;sex;Share of sole-proprietor enterprises that are owned by women;Share of sole-proprietor enterprises that are owned by women;unknown
+GENDER_ENT1_06112016140916235;percentage;Earning gap in self-employment;Earning gap in self-employment;unknown
+GENDER_ENT1_06112016140923454;share;Share of sole-proprietor enterprises that are owned by women;Share of sole-proprietor enterprises that are owned by women;unknown

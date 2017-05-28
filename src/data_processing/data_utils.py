@@ -36,7 +36,7 @@ def export_ML4(df, path):
     df = df[COLUMNS]
 
     # randomize rows
-    df = df.sample(frac=1)
+    # df = df.sample(frac=1)
 
     # for OSC format
     for column in df.columns:
@@ -47,7 +47,7 @@ def export_ML4(df, path):
 
     df.to_csv(path_out, sep='\t', header=False, index=False, encoding='utf-8', decimal=',')
 
-    print 'data saved at \n\t %s' % path_out
+    print 'saved: %s\n' % path_out
 
 
 def add_hash(df, hash_criteria):

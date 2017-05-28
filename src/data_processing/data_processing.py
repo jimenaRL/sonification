@@ -1,5 +1,6 @@
 import os
 import sys
+import traceback
 import copy
 import datetime
 import glob
@@ -9,7 +10,8 @@ from data_utils import *
 
 
 def sex(df, columns):
-    """ Sex difference data traitement. """
+    """ values are in any range and described for both men and women
+    """
 
     # define sort criteria
     sort_criteria = copy.deepcopy(columns)
@@ -54,39 +56,63 @@ def sex(df, columns):
 
 
 def share(df, columns):
+    """ values are in [0, 1] range with
+            0.5 ~ no difference between men and women
+              0 ~ maximal difference between men and women
+    """
     df['Value'] = df['Value'].apply(lambda x: 1-2*x)
     return df
 
 
 def no_treat(df, columns):
-    "values are in [0, 1] range with "
+    """ values are in [0, 1] range with
+            0 ~ no difference between men and women
+            1 ~ maximal difference between men and women
+    """
+    return df
+
+
+def percentage(df, columns):
+    """ values are in [0, 100] range with
+            0 ~ no difference between men and women
+          100 ~ maximal difference between men and women
+    """
+    df['Value'] = df['Value'].apply(lambda x: x/100.)
     return df
 
 
 def data_traitement(path, columns, treatment, new_indicator):
 
-    print 'processing \n\t%s' % path
-    print 'treatment \n\t%s' % treatment
+    try:
 
-    if isinstance(columns, basestring):
-        columns = list(columns.split(','))
+        print 'processing: %s' % path
+        print 'treatment: %s' % treatment
 
-    if isinstance(treatment, basestring):
-        treatment = globals()[treatment]
+        if isinstance(columns, basestring):
+            columns = list(columns.split(','))
 
-    # load and clean data
-    df = pd.read_csv(path, delimiter=',', engine='python')[columns]
-    df.dropna(axis='index', inplace=True, how='any')
+        if isinstance(treatment, basestring):
+            treatment = globals()[treatment]
 
-    # normalize columns
-    df = normalize_columns(df)
+        # load and clean data
+        df = pd.read_csv(path, delimiter=',', engine='python')[columns]
+        df.dropna(axis='index', inplace=True, how='any')
 
-    # rename indicator
-    df = rename_indicator(df, new_indicator)
+        # normalize columns
+        df = normalize_columns(df)
 
-    # specific data traitement
-    processed_df = treatment(df, columns)
-    export_ML4(processed_df, path)
+        # rename indicator
+        df = rename_indicator(df, new_indicator)
+
+        # specific data traitement
+        processed_df = treatment(df, columns)
+        export_ML4(processed_df, path)
+
+    except Exception as e:
+        print 'failed'
+        print traceback.print_exc()
+        os.system('open %s' % path)
+        raise ValueError()
 
 
 def create_database():
@@ -96,14 +122,14 @@ def create_database():
 
     # create data dict
     data = {
-        'education': {
-            'columns': COLUMNS + ['Sex'],
-            'paths':  glob.glob(os.path.join(DATA_FOLDER, "education/*.csv")),
-
-        },
-        'development': {
+        'development': {  # ok
             'columns': ['Country', 'Variables', 'Time', 'Value'],
             'paths':  glob.glob(os.path.join(DATA_FOLDER, "development/*.csv")),
+
+        },
+        'education': {  # ok
+            'columns': COLUMNS + ['Sex'],
+            'paths':  glob.glob(os.path.join(DATA_FOLDER, "education/*.csv")),
 
         },
         'employment': {
@@ -115,8 +141,8 @@ def create_database():
             'columns': COLUMNS,
             'paths':  glob.glob(os.path.join(DATA_FOLDER, "health/*.csv")),
         },
-        'entrepreneurship': {
-            'columns': COLUMNS,
+        'entrepreneurship': {  # ok
+            'columns': COLUMNS + ['Sex'],
             'paths':  glob.glob(os.path.join(DATA_FOLDER, "entrepreneurship/*.csv")),
 
         },
@@ -141,9 +167,10 @@ def create_database():
 
     df_out = pd.DataFrame.from_records(records)
     columns = ['name', 'kind', 'code', u'columns', u'path']
-    path = '/Users/JRLetelier/perso/sonification/data/oced_all_' + \
-        datetime.datetime.now().strftime("%y%m%d-%Hh%M")+'.tsv'
-    df_out.to_csv(path, sep='\t', header=True, index=False, columns=columns)
+    path = '/Users/JRLetelier/perso/sonification/data/oced/oced_all.csv'
+    bk_path = '/Users/JRLetelier/perso/sonification/data/oced/oced_all_bk.csv'
+    os.system('mv %s %s' % (path, bk_path))
+    df_out.to_csv(path, sep=';', header=True, index=False, columns=columns)
 
     if sys.platform == 'darwin':
         os.system('open %s' % path)
@@ -157,14 +184,10 @@ def parse_database():
     db = pd.read_csv(path, delimiter=';', engine='python')
 
     for k, row in db.iterrows():
-        if row['kind'] == 'development':
-            # try:
-            data_traitement(row.path,
-                            row['columns'],
-                            TREATMENTS[row.code]['treatment'],
-                            TREATMENTS[row.code]['new_indicator_name'])
-            # except Exception as e:
-            #     print e
+        data_traitement(row.path,
+                        row['columns'],
+                        TREATMENTS[row.code]['treatment'],
+                        TREATMENTS[row.code]['new_indicator_name'])
 
 if __name__ == '__main__':
     # create_database()
