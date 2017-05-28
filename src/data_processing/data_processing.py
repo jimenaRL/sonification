@@ -54,14 +54,16 @@ def sex(df, columns):
 
 
 def share(df, columns):
-    pass
-
-
-def no_treat(df, columns):
+    df['Value'] = df['Value'].apply(lambda x: 1-2*x)
     return df
 
 
-def data_traitement(path, columns, treatment):
+def no_treat(df, columns):
+    "values are in [0, 1] range with "
+    return df
+
+
+def data_traitement(path, columns, treatment, new_indicator):
 
     print 'processing \n\t%s' % path
     print 'treatment \n\t%s' % treatment
@@ -78,6 +80,9 @@ def data_traitement(path, columns, treatment):
 
     # normalize columns
     df = normalize_columns(df)
+
+    # rename indicator
+    df = rename_indicator(df, new_indicator)
 
     # specific data traitement
     processed_df = treatment(df, columns)
@@ -154,10 +159,13 @@ def parse_database():
     for k, row in db.iterrows():
         if row['kind'] == 'development':
             # try:
-            data_traitement(row.path, row['columns'], TREATMENTS[row.code]['treatment'])
+            data_traitement(row.path,
+                            row['columns'],
+                            TREATMENTS[row.code]['treatment'],
+                            TREATMENTS[row.code]['new_indicator_name'])
             # except Exception as e:
             #     print e
 
 if __name__ == '__main__':
-    create_database()
-    # parse_database()
+    # create_database()
+    parse_database()

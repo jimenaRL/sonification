@@ -10,6 +10,11 @@ TREATMENTS_PATH = os.path.join(DATA_FOLDER, 'oced_code_treatment.csv')
 TREATMENTS = pd.read_csv(TREATMENTS_PATH, delimiter=';').set_index(['code']).to_dict('index')
 
 
+def rename_indicator(df, new_indicator):
+    df['Indicator'] = new_indicator
+    return df
+
+
 def normalize_columns(df):
     return df.rename(columns=COLUMNS_RENAME_MAPPING, inplace=False)
 
