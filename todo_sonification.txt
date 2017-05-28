@@ -31,6 +31,8 @@ DONE
 - data
 
     define accepted input format
+        COLUMNS = ['Country', 'Indicator', 'Time', 'Value']
+
     normalisation in python
 
 - viz
