@@ -40,7 +40,7 @@ def export_ML4(df, path):
 
     # for OSC format
     for column in df.columns:
-        df[column] = df[column].apply(lambda x: str(x).replace(' ', '_'))
+        df[column] = df[column].apply(lambda x: str(x).replace(' ', '_').replace(',', '_'))
 
     pre_path, name = os.path.split(path.split('.')[0])
     path_out = os.path.join(pre_path, name+'_m4l.tsv')
