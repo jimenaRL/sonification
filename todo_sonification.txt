@@ -4,7 +4,9 @@ TO DO CREATION
 
 TO DO DEV
 
+
 - max
+
 
     device modification
         remove autopattr
@@ -29,6 +31,10 @@ IN PROGRESS
 DONE
 
 - data
+
+    create list of data
+
+    fix parsing of datas with semicolon
 
     define accepted input format
         COLUMNS = ['Country', 'Indicator', 'Time', 'Value']
