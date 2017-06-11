@@ -43,7 +43,8 @@ def export_ML4(df, path):
         df[column] = df[column].apply(lambda x: str(x).replace(' ', '_').replace(',', '_'))
 
     pre_path, name = os.path.split(path.split('.')[0])
-    path_out = os.path.join(pre_path, name+'_m4l.tsv')
+    name += '_'+df.Indicator.tolist()[0].replace('/', '_')
+    path_out = os.path.join(pre_path, name+'.tsv')
 
     df.to_csv(path_out, sep='\t', header=False, index=False, encoding='utf-8', decimal=',')
 
