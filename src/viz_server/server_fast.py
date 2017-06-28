@@ -121,8 +121,7 @@ if __name__ == "__main__":
             indent = np.random.randint(0, 10)
             print ("\t" * indent + "%s %s %i %1.2f" % (country, measure, year, value) + '\n')
         elif endpoint == "/clean":
-            # speed in microseconds
             for i in range(200):
                 print '\n'
         else:
-            raise ValueError("Wrong endpoint %s. Must be '/woman' or 'clean'.")
+            raise ValueError("Wrong endpoint %s. Must be '/woman' or '/clean'.")
