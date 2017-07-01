@@ -111,6 +111,10 @@ if __name__ == "__main__":
                          socket.SOCK_DGRAM)  # UDP
     sock.bind((UDP_IP, UDP_PORT))
 
+    # clear window
+    for i in range(300):
+        print '\n'
+
     while True:
         decoded = decodeOSC(sock.recv(1024))
         endpoint, types_ = decoded[:2]
