@@ -21,15 +21,6 @@ Music & Programming
 ![Sequence Schema](image.png)
 
 
-## Configuration and dependencies
-
-1) Install pyosc python package
-
-* $ git clone https://github.com/ptone/pyosc.git
-* $ cd pyosc
-* $ sudo ./setup.py install
-
-2) Set valid data_path 'path/to/sonification/data/oced' in data_processing.py file.
 
 ## Data source
 
