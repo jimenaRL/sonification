@@ -4,3 +4,6 @@ projects/
 ressources/
 website/content
 tmp/
+*.doc
+*.xls
+*.xlsx
