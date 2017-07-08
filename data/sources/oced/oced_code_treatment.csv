@@ -1,5 +1,5 @@
 code;treatment;name;new_indicator_name;url
-GIDDB2014_27052017153629784;no_treat;Female genital mutilation;Female genital mutilation;http://stats.oecd.org/index.aspx?queryid=71074
+GIDDB2014_27052017153629784;no_treat_percent;Female genital mutilation;Female genital mutilation;http://stats.oecd.org/index.aspx?queryid=71074
 GIDDB2014_30102016195035101;share;Political representation;Women in national parliaments;http://stats.oecd.org/index.aspx?queryid=71092
 GENDER_EDU_06112016140116188;percentage;Differences in earnings between female and male workers, All levels of education;Differences in earnings between female and male workers, All levels of education;unknown
 GENDER_EDU_06112016140132095;sex;Participation in formal and/or non-formal education, Formal education, standard error;Participation in formal and/or non-formal education, Formal education, standard error;unknown
