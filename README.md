@@ -26,3 +26,6 @@ Music & Programming
 
 [OECD gender data](http://www.oecd.org/gender/data/)
 
+
+
+$ export SONI=/you/path/to/sonification/folder

@@ -1,3 +1,4 @@
+import os
 import sys
 import math
 import time
@@ -6,6 +7,11 @@ import struct
 import socket
 import pandas as pd
 import numpy as np
+
+if not "SONI_PATH" in os.environ:
+    raise ValueError("You must set 'SONI_PATH' as environment variable.")
+else:
+    SONI_PATH = os.environ["SONI_PATH"]
 
 
 def _readString(data):
@@ -106,6 +112,7 @@ def decodeOSC(data):
 def get_inv_map():
 
     path = "/Users/Kourouk/Music/Session_en_Cours_MAcPro/Z1_Gender_Data_Sonification_AISS/sonification/data/sources/oced/oced_code_treatment.csv"
+
     df = pd.read_csv(path, sep=';', engine="python")[["new_indicator_name", "treatment"]]
     df["new_indicator_name"] = df["new_indicator_name"].apply(lambda n: n.replace(',', ''))
     map_ = {t.new_indicator_name: t.treatment for t in df.itertuples()}
