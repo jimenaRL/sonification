@@ -111,7 +111,8 @@ def decodeOSC(data):
 
 def get_inv_map():
 
-    path = os.path.join(SONI_PATH, "data/sources/oced/oced_code_treatment.csv")
+    path = "/Users/Kourouk/Music/Session_en_Cours_MAcPro/Z1_Gender_Data_Sonification_AISS/sonification/data/sources/oced/oced_code_treatment.csv"
+
     df = pd.read_csv(path, sep=';', engine="python")[["new_indicator_name", "treatment"]]
     df["new_indicator_name"] = df["new_indicator_name"].apply(lambda n: n.replace(',', ''))
     map_ = {t.new_indicator_name: t.treatment for t in df.itertuples()}
